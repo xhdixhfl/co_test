@@ -7,4 +7,4 @@ def solution(my_string):
             answer.append(i.upper())
         elif i not in down:
             answer.append(i.lower())
-    return ''.join(answer)
+    return ''.join(answer) 
