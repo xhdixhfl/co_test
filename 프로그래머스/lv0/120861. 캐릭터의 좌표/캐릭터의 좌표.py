@@ -17,7 +17,6 @@ def solution(keyinput, board):
             x, y = nx, ny
 
     return [x, y]
-    return one, two
 
 # 이렇게 도전중 근데 8번이 계속 탈락됨
     # one = []
