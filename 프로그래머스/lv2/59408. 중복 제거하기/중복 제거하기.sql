@@ -1,0 +1,3 @@
+-- 코드를 입력하세요
+SELECT COUNT(name) 
+FROM (SELECT * FROM ANIMAL_INS  GROUP BY NAME) as this
