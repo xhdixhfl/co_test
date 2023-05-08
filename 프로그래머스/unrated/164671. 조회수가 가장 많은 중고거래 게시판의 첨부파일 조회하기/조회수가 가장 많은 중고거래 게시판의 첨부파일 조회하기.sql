@@ -1,0 +1,18 @@
+-- 코드를 입력하세요
+# SELECT CONCAT('/home/grep/src/',FILE_ID,'/',BOARD_ID,FILE_NAME,FILE_EXT) AS FILE_PATH
+# FROM USED_GOODS_FILE
+# WHERE BOARD_ID IN (SELECT BOARD_ID
+#                     FROM (SELECT *, RANK() OVER(ORDER BY VIEWS DESC) R
+#                             FROM USED_GOODS_BOARD
+# JOIN USED_GOODS_BOARD GB
+# ON GB.BOARD_ID = GF.BOARD_ID
+# WHERE GB.PRICE = MAX(GB.PRICE)
+SELECT CONCAT('/home/grep/src/', BOARD_ID, '/', FILE_ID, FILE_NAME, FILE_EXT) AS FILE_PATH
+FROM USED_GOODS_FILE
+WHERE BOARD_ID = (SELECT BOARD_ID
+                    FROM (SELECT *, RANK() OVER(ORDER BY VIEWS DESC) R
+                            FROM USED_GOODS_BOARD
+                    ) a
+                    WHERE a.R = 1
+                 )
+ORDER BY FILE_ID DESC
